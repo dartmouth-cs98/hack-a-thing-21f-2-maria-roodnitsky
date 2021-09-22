@@ -19,6 +19,12 @@ Here is a Facebook flow!
 
 ![Registration Flow](https://github.com/dartmouth-cs98/hack-a-thing-21f-1-maria-roodnitsky/blob/master/facebook.gif)
 
+Here is Firebase: 
+![Firebase](https://github.com/dartmouth-cs98/hack-a-thing-21f-1-maria-roodnitsky/blob/master/Screen%20Shot%202021-09-22%20at%2010.10.50%20AM.png)
+
+And here is Facebook development: 
+![Facebook](https://github.com/dartmouth-cs98/hack-a-thing-21f-1-maria-roodnitsky/blob/master/Screen%20Shot%202021-09-22%20at%2010.11.16%20AM.png)
+
 ## Who Did What?
 
 I worked on this myself. 
