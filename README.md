@@ -7,6 +7,15 @@ I have had experience working with iOS apps in the past, but never building one 
 
 ## Screenshots
 
+Here is a log in flow with email authentication!
+![Log In Flow](https://github.com/dartmouth-cs98/hack-a-thing-21f-1-maria-roodnitsky/blob/master/login.gif)
+
+Here is a registration flow!
+![Registration Flow](https://github.com/dartmouth-cs98/hack-a-thing-21f-1-maria-roodnitsky/blob/master/registration.gif)
+
+Here is a Facebook flow!
+![Registration Flow](https://github.com/dartmouth-cs98/hack-a-thing-21f-1-maria-roodnitsky/blob/master/facebook.gif)
+
 ## Who Did What?
 
 TODO: who worked on what part?
