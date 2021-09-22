@@ -8,27 +8,31 @@ I have had experience working with iOS apps in the past, but never building one 
 ## Screenshots
 
 Here is a log in flow with email authentication!
+
 ![Log In Flow](https://github.com/dartmouth-cs98/hack-a-thing-21f-1-maria-roodnitsky/blob/master/login.gif)
 
 Here is a registration flow!
+
 ![Registration Flow](https://github.com/dartmouth-cs98/hack-a-thing-21f-1-maria-roodnitsky/blob/master/registration.gif)
 
 Here is a Facebook flow!
+
 ![Registration Flow](https://github.com/dartmouth-cs98/hack-a-thing-21f-1-maria-roodnitsky/blob/master/facebook.gif)
 
 ## Who Did What?
 
-TODO: who worked on what part?
+I worked on this myself. 
+I also originally worked on this on this repo before porting it into the classroom repo. (Oops.) Here is a [link to my commit history]( https://github.com/maria-roodnitsky/messenger/tree/main)
 
 ## What you learned
 
-TODO: what worked / what didn't work
+I ran into multiple issues working on this. Swift has changed slightly, so some imports needed to be hacky. 
 
 ## Authors
 
-TODO: list of authors
+@me here
 
 ## Acknowledgments
 
-TODO: cite any tutorials followed here
+I followed the first 10 videos of this 20 video [series](https://www.youtube.com/watch?v=Mroju8T7Gdo&list=PL5PR3UyfTWvdlk-Qi-dPtJmjTj-2YIMMf).
 
