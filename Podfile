@@ -17,4 +17,6 @@ pod 'JGProgressHUD'
 pod 'RealmSwift'
 pod 'SDWebImage'
 
+pod 'GoogleSignIn', '5.0.2'
+
 end

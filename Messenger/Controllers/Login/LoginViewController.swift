@@ -9,6 +9,7 @@ import UIKit
 import FirebaseAuth
 import FBSDKLoginKit
 import JGProgressHUD
+import GoogleSignIn
 
 class LoginViewController: UIViewController {
     
@@ -82,8 +83,21 @@ class LoginViewController: UIViewController {
     }()
     
     
+    private let googleLoginButton = GIDSignInButton()
+    
+    private var loginObserver: NSObjectProtocol?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loginObserver = NotificationCenter.default.addObserver(forName: Notification.Name.didLogInNotification, object: nil, queue: .main, using: { [weak self]_ in
+            guard let strongSelf = self else  {
+                return
+            }
+            
+            strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+        })
+        GIDSignIn.sharedInstance()?.presentingViewController = self
         title = "Log In"
         view.backgroundColor = .white
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Register",
@@ -105,6 +119,14 @@ class LoginViewController: UIViewController {
         
         facebookLoginButton.center = view.center
         scrollView.addSubview(facebookLoginButton)
+        scrollView.addSubview(googleLoginButton)
+
+    }
+    
+    deinit {
+        if let observer = loginObserver {
+            NotificationCenter.default.removeObserver(observer)
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -132,6 +154,10 @@ class LoginViewController: UIViewController {
         facebookLoginButton.center = scrollView.center
         facebookLoginButton.frame = CGRect(x: 30,
                                            y: loginButton.bottom + 10,
+                                           width: scrollView.width - 60,
+                                           height: 52)
+        googleLoginButton.frame = CGRect(x: 30,
+                                           y: facebookLoginButton.bottom + 10,
                                            width: scrollView.width - 60,
                                            height: 52)
         
