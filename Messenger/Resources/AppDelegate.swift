@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     ) -> Bool {
         
         FirebaseApp.configure()
-          
+        
         ApplicationDelegate.shared.application(
             application,
             didFinishLaunchingWithOptions: launchOptions
@@ -27,16 +27,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         GIDSignIn.sharedInstance()?.delegate = self
         GIDSignIn.sharedInstance()?.clientID = FirebaseApp.app()?.options.clientID
-
+        
         return true
     }
-          
+    
     func application(
         _ app: UIApplication,
         open url: URL,
         options: [UIApplication.OpenURLOptionsKey : Any] = [:]
     ) -> Bool {
-
+        
         ApplicationDelegate.shared.application(
             app,
             open: url,
@@ -65,7 +65,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         DatabaseManager.shared.userExists(with: email, completion: {exists in
             if !exists{
-                DatabaseManager.shared.insertUser(with: ChatAppUser(firstName: firstName, lastName: lastName, emailAddress: email))
+                let chatUser = ChatAppUser(firstName: firstName, lastName: lastName, emailAddress: email)
+                DatabaseManager.shared.insertUser(with: chatUser, completion: { success in
+                    if success {
+                        
+                        if user.profile.hasImage {
+                            guard let url = user.profile.imageURL(withDimension: 200) else {
+                                return
+                            }
+                            
+                            URLSession.shared.dataTask(with: url, completionHandler: {data, _, _ in
+                                guard let data = data else {
+                                    return
+                                }
+                                
+                                let fileName = chatUser.profilePictureFileName
+                                StorageManager.shared.uploadProfilePicture(with: data, fileName: fileName, completion: { result in
+                                    switch result {
+                                    case .success(let downloadUrl):
+                                        UserDefaults.standard.set(downloadUrl, forKey: "profile_picture_url")
+                                        print(downloadUrl)
+                                    case .failure(let error):
+                                        print("storage manager error: \(error)")
+                                    }
+                                })
+                            }).resume()
+                        }
+                    }
+                })
             }
         })
         
@@ -90,4 +117,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         print("Google user was disconnected")
     }
 }
-    
+
