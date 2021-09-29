@@ -116,7 +116,7 @@ class ChatViewController: MessagesViewController {
                 
                 DispatchQueue.main.async {
                     self?.messagesCollectionView.reloadDataAndKeepOffset()
-
+                    
                     if shouldScrollToBottom {
                         self?.messagesCollectionView.scrollToBottom()
                     }
@@ -141,7 +141,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate{
         }
         
         let message = Message(sentDate: Date(), kind: .text(text), sender: selfSender, messageId: messageId)
-
+        
         
         if isNewConversation {
             // create

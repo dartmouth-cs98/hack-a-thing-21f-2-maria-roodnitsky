@@ -40,7 +40,7 @@ final class StorageManager {
     public enum StorageErrors: Error {
         case failedToUpload
         case failedToGetDownloadURL
-
+        
     }
     
     public func downloadURL(for path: String, completion: @escaping  (Result<URL, Error>) -> Void) {

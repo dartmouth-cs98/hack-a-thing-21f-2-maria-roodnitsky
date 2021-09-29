@@ -23,18 +23,7 @@ final class DatabaseManager {
 }
 
 extension DatabaseManager {
-    public func getDataFor(path: String, completion: @escaping (Result<Any, Error>) -> Void){
-        self.database.child("\(path)").observeSingleEvent(of: .value) { snapshot in
-            guard let value = snapshot.value else {
-                return
-            }
-            completion(.success(value))
-        }
-    }
-}
-
-extension DatabaseManager {
-    public func createNewConversation(with otherUserEmail: String, name: String, firstMessage: Message, completion: @escaping (Bool) -> Void){
+    public func createNewConversation(with otherUserEmail: String, name: String, firstMessage: Message, completion: @escaping (Bool) -> Void) {
         
         guard let currentEmail = UserDefaults.standard.value(forKey: "email") as? String,
               let currentName = UserDefaults.standard.value(forKey: "name") as? String else {
@@ -80,6 +69,7 @@ extension DatabaseManager {
             }
             
             let conversationID = "conversation \(firstMessage.messageId)"
+            
             let newConversationData: [String: Any] = [
                 "id": conversationID,
                 "other_user_email": otherUserEmail,
@@ -102,15 +92,13 @@ extension DatabaseManager {
                 ]
             ]
             
-            self?.database.child("\(otherUserEmail)/consersations").observeSingleEvent(of: .value, with: { [weak self]
-                snapshot in
+            self?.database.child("\(otherUserEmail)/conversations").observeSingleEvent(of: .value, with: { [weak self] snapshot in
                 if var conversations = snapshot.value as? [[String: Any]] {
                     conversations.append(recipientNewConversationData)
-                    self?.database.child("\(otherUserEmail)/consersations").setValue(conversationID)
+                    self?.database.child("\(otherUserEmail)/conversations").setValue(conversationID)
                     
-                }
-                else {
-                    self?.database.child("\(otherUserEmail)/consersations").setValue([recipientNewConversationData])
+                } else {
+                    self?.database.child("\(otherUserEmail)/conversations").setValue([recipientNewConversationData])
                 }
             })
             
@@ -137,10 +125,8 @@ extension DatabaseManager {
                     }
                     self?.finishCreatingConversation(name: name, conversationID: conversationID, firstMessage: firstMessage, completion: completion)
                 })
-                
             }
         })
-        
     }
     
     
@@ -265,10 +251,9 @@ extension DatabaseManager {
     }
     
     public func sendMessage(to conversation: String, name: String, newMessage: Message, completion: @escaping (Bool) -> Void){
-        self.database.child("\(conversation)/messages").observeSingleEvent(of: .value, with: { [weak self] snapshot in
+        database.child("\(conversation)/messages").observeSingleEvent(of: .value, with: { [weak self] snapshot in
             guard let strongSelf = self else {
                 return
-                
             }
             guard var currentMessages = snapshot.value as? [[String: Any]] else {
                 completion(false)
@@ -314,7 +299,7 @@ extension DatabaseManager {
             let collectionMessage: [String: Any] = [
                 "id": newMessage.messageId,
                 "type": newMessage.kind.messageKindString,
-                "content": newMessage,
+                "content": message,
                 "date": dateString,
                 "sender_email": currentUserEmail,
                 "is_read": false,
@@ -410,6 +395,17 @@ extension DatabaseManager {
             } else {
                 completion(false)
             }
+        }
+    }
+}
+
+extension DatabaseManager {
+    public func getDataFor(path: String, completion: @escaping (Result<Any, Error>) -> Void){
+        self.database.child("\(path)").observeSingleEvent(of: .value) { snapshot in
+            guard let value = snapshot.value else {
+                return
+            }
+            completion(.success(value))
         }
     }
 }

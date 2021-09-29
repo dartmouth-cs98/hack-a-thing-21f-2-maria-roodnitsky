@@ -201,8 +201,8 @@ class LoginViewController: UIViewController {
                 switch result {
                 case .success(let data):
                     guard let userData = data as? [String: Any],
-                        let firstName = userData["first_name"] as? String,
-                        let lastName = userData["last_name"] as? String else {
+                          let firstName = userData["first_name"] as? String,
+                          let lastName = userData["last_name"] as? String else {
                         return
                     }
                     
@@ -283,7 +283,7 @@ extension LoginViewController: LoginButtonDelegate {
             
             UserDefaults.standard.set(email, forKey: "email")
             UserDefaults.standard.set("\(firstName) \(lastName)", forKey: "name")
-
+            
             DatabaseManager.shared.userExists(with: email, completion: { exists in
                 if !exists {
                     let chatUser = ChatAppUser(firstName: firstName, lastName: lastName, emailAddress: email)
@@ -301,7 +301,7 @@ extension LoginViewController: LoginButtonDelegate {
                                     return
                                 }
                                 print("got data from facebook")
-
+                                
                                 let fileName = chatUser.profilePictureFileName
                                 StorageManager.shared.uploadProfilePicture(with: data, fileName: fileName, completion: { result in
                                     switch result {

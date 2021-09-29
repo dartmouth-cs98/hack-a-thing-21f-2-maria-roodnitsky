@@ -27,15 +27,15 @@ class ConversationsViewController: UIViewController {
     private let spinner = JGProgressHUD(style: .dark)
     
     private var conversations = [Conversation]()
-
+    
     private let tableView: UITableView = {
         let table = UITableView()
         table.isHidden = true
         table.register(ConversationTableViewCell.self, forCellReuseIdentifier: ConversationTableViewCell.identifier)
-
+        
         return table
     }()
-
+    
     private let noConversationsLabel: UILabel = {
         let label = UILabel()
         label.text = "No Conversations"
@@ -43,10 +43,10 @@ class ConversationsViewController: UIViewController {
         label.textColor = .gray
         label.font = .systemFont(ofSize: 21, weight: .medium)
         label.isHidden = true
-
+        
         return label
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(didTapComposeButton))
@@ -78,7 +78,7 @@ class ConversationsViewController: UIViewController {
             }
         })
     }
-
+    
     @objc private func didTapComposeButton() {
         let vc = NewConversationViewController()
         vc.completion = { [weak self ] result in
@@ -99,7 +99,7 @@ class ConversationsViewController: UIViewController {
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
     }
-
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.frame = view.bounds
@@ -116,11 +116,11 @@ class ConversationsViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
-
+    
     private func fetchConversations() {
         tableView.isHidden = false
     }
-
+    
     private func validateAuth() {
         if FirebaseAuth.Auth.auth().currentUser == nil {
             let vc = LoginViewController()
@@ -129,28 +129,28 @@ class ConversationsViewController: UIViewController {
             present(nav, animated: false)
         }
     }
-
+    
 }
 
 extension ConversationsViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return conversations.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = conversations[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: ConversationTableViewCell.identifier, for: indexPath) as! ConversationTableViewCell
         cell.configure(with: model)
-
+        
         return cell
     }
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let model = conversations[indexPath.row]
-
-
+        
+        
         let vc = ChatViewController(with: model.otherUserEmail, id: model.id)
         vc.title = model.name
         vc.navigationItem.largeTitleDisplayMode = .never

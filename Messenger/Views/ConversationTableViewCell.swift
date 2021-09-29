@@ -37,7 +37,7 @@ class ConversationTableViewCell: UITableViewCell {
     }()
     
     
-
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(userImageView)
@@ -56,7 +56,7 @@ class ConversationTableViewCell: UITableViewCell {
         userNameLabel.frame = CGRect(x: userImageView.right + 10, y: 10, width: contentView.width - 20 - userImageView.width, height: (contentView.height - 20)/2)
         userMessageLabel.frame = CGRect(x: userImageView.right + 10, y: userNameLabel.bottom + 10, width: contentView.width - 20 - userImageView.width, height: (contentView.height - 20)/2)
         
-
+        
     }
     
     public func configure(with model: Conversation){
@@ -69,7 +69,7 @@ class ConversationTableViewCell: UITableViewCell {
             case .success(let url):
                 DispatchQueue.main.async {
                     self?.userImageView.sd_setImage(with: url, completed: nil)
-
+                    
                 }
             case .failure(let error):
                 print("failed to get image")

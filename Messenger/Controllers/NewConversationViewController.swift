@@ -16,15 +16,15 @@ class NewConversationViewController: UIViewController {
     
     private var users = [[String: String]]()
     private var results = [[String: String]]()
-
+    
     private var hasFetched = false
-
+    
     private let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.placeholder = "Search for users..."
         return searchBar
     }()
-
+    
     private let noResultsLabel: UILabel = {
         let label = UILabel()
         label.text = "No Results"
@@ -32,17 +32,17 @@ class NewConversationViewController: UIViewController {
         label.textColor = .green
         label.font = .systemFont(ofSize: 21, weight: .medium)
         label.isHidden = true
-
+        
         return label
     }()
-
+    
     private let tableView: UITableView = {
         let table = UITableView()
         table.isHidden = true
         table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         return table
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,7 +56,7 @@ class NewConversationViewController: UIViewController {
         view.backgroundColor = .white
         navigationController?.navigationBar.topItem?.titleView = searchBar
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel", style: .done, target: self, action: #selector(dismissSelf))
-
+        
         searchBar.becomeFirstResponder()
     }
     
@@ -109,7 +109,7 @@ extension NewConversationViewController: UISearchBarDelegate {
     func searchUsers(query: String) {
         if hasFetched{
             filterUsers(with: query)
-
+            
         } else {
             DatabaseManager.shared.getAllUsers(completion: { [weak self] result in
                 switch result {
