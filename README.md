@@ -3,7 +3,7 @@
 
 ## What you built? 
 
-For hack-a-thing 2, I continued working on my iOS messaging app. I figured continuing with this app would be useful because it would give me both a pretty solid Firebase and general iOS refresher. Back when I worked with Firebase for the first time, my partner did most of the backend. The entire tutorial series is almost 14 hours long, and throughout the hack-a-thing process, I made it through slightly over 10 hours worth of videos.  In this chunk, I learned how to do Google authenticiation, how to save and load images from Firebase, how to use various external packages (MessageKit, SDWebImage, etc.), how to search for users in a database, and how to send real-time messages back and forth between users. 
+For hack-a-thing 2, I continued working on my iOS messaging app. I figured continuing with this app would be useful because it would give me both a pretty solid Firebase and general iOS refresher. Back when I worked with Firebase for the first time, my partner did most of the backend, so it was nice to know how to do it purely on my own! The entire tutorial series is almost 14 hours long, and throughout the hack-a-thing process, I made it through slightly over 10 hours worth of videos.  In this chunk, I learned how to do Google authenticiation, how to save and load images from Firebase, how to use various external packages (MessageKit, SDWebImage, etc.), how to search for users in a database, and how to send real-time messages back and forth between users. 
 
 ## Screenshots
 
