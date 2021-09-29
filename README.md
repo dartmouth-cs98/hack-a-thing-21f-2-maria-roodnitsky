@@ -17,10 +17,10 @@ Here is a registration flow!
 
 Here is a Facebook flow!
 
-![Registration Flow](https://github.com/dartmouth-cs98/hack-a-thing-21f-1-maria-roodnitsky/blob/master/facebook.gif)
+![shot 1](https://github.com/dartmouth-cs98/hack-a-thing-21f-2-maria-roodnitsky/blob/master/28616079-B43B-40C6-9025-ACBD6E1366CB.PNG)
 
 Here is Firebase: 
-![Firebase](https://github.com/dartmouth-cs98/hack-a-thing-21f-1-maria-roodnitsky/blob/master/Screen%20Shot%202021-09-22%20at%2010.10.50%20AM.png)
+![shot 2](https://github.com/dartmouth-cs98/hack-a-thing-21f-2-maria-roodnitsky/blob/master/28F7036F-5581-4A7E-A76D-2BD8FB98FDB3.JPG)
 
 And here is Facebook development: 
 ![Facebook](https://github.com/dartmouth-cs98/hack-a-thing-21f-1-maria-roodnitsky/blob/master/Screen%20Shot%202021-09-22%20at%2010.11.16%20AM.png)
