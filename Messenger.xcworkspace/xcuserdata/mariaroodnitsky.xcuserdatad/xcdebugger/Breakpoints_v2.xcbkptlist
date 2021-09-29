@@ -174,8 +174,8 @@
             filePath = "Messenger/Resources/DatabaseManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "200"
-            endingLineNumber = "200"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
             landmarkName = "getAllConversations(for:completion:)"
             landmarkType = "7">
             <Locations>
