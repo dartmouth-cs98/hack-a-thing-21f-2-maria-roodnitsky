@@ -24,6 +24,7 @@
 		A56F03B726FAA90E009429F9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A56F03B626FAA90E009429F9 /* GoogleService-Info.plist */; };
 		A56F03B926FAB372009429F9 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56F03B826FAB372009429F9 /* DatabaseManager.swift */; };
 		A588BB012701150D0055F59B /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A588BB002701150D0055F59B /* StorageManager.swift */; };
+		A588BB032703E8B60055F59B /* ConversationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A588BB022703E8B60055F59B /* ConversationTableViewCell.swift */; };
 		AB2CE35D0249B0BD5F570E9D /* Pods_Messenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB17C61528765CD72A00C30F /* Pods_Messenger.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		A56F03B626FAA90E009429F9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A56F03B826FAB372009429F9 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		A588BB002701150D0055F59B /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		A588BB022703E8B60055F59B /* ConversationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationTableViewCell.swift; sourceTree = "<group>"; };
 		AB17C61528765CD72A00C30F /* Pods_Messenger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Messenger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -132,6 +134,7 @@
 			children = (
 				A528441F26FA657A00F54139 /* Storyboards */,
 				A528440F26FA602700F54139 /* Assets.xcassets */,
+				A588BB022703E8B60055F59B /* ConversationTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				A528440726FA602500F54139 /* AppDelegate.swift in Sources */,
 				A528442B26FA66F500F54139 /* ProfileViewController.swift in Sources */,
 				A528440926FA602500F54139 /* SceneDelegate.swift in Sources */,
+				A588BB032703E8B60055F59B /* ConversationTableViewCell.swift in Sources */,
 				A525C64C26FB7DDB0019B019 /* ChatViewController.swift in Sources */,
 				A528442526FA66BA00F54139 /* PhotoViewerViewController.swift in Sources */,
 				A588BB012701150D0055F59B /* StorageManager.swift in Sources */,
