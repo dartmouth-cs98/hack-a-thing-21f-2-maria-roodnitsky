@@ -3,7 +3,7 @@
 
 ## What you built? 
 
-I have had experience working with iOS apps in the past, but I have never built one from scratch and set everything up myself. For my first hack-a-thing, I set up an iOS application from scratch using Swift, CocoaPods, and external packages. This app has a login and registration flow that stores users in Firebase (both through normal email authentication and Facebook authentication) and utilizes a messaging package to make messages look nice. :smile:
+For hack-a-thing 2, I continued working on my iOS messaging app. The entire tutorial series is almost 14 hours long, and throughout the hack-a-thing process, I made it through slightly over 10 hours worth of videos.  In this chunk, I learned how to do Google authenticiation, how to save and load images from Firebase, how to use various external packages (MessageKit, SDWebImage, etc.), how to search for users in a database, and how to send real-time messages back and forth between users. 
 
 ## Screenshots
 
